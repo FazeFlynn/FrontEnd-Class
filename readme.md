@@ -344,6 +344,7 @@ for (let key in person) {
 ```
 **Output:** 
 
+
 ```makefile
 name: John
 age: 30

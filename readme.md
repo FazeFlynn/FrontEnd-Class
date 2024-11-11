@@ -8,6 +8,121 @@ swayam and aicte for internship and certification -->
 
 <!-- ================================================================================================ -->
 
+
+# DataTypes in Js
+
+**Data Types in JavaScript** JavaScript has **7 primitive data types**  and **1 non-primitive (reference) data type**.
+
+**1. Number** 
+- Represents numeric values (both integers and floating-point numbers).
+- Includes special values like `NaN` (Not-a-Number) and `Infinity`.
+
+**Example:** 
+
+```js
+let age = 25;         // Integer
+let price = 99.99;    // Float
+let result = NaN;     // Not-a-Number
+let bigNum = Infinity; // Infinity
+```
+**2. String**  
+- Represents textual data enclosed in single (`' '`), double (`" "`), or backticks (`` ``).
+
+- Strings are immutable.
+**Example:** 
+
+```js
+let name = "John";
+let greeting = 'Hello, World!';
+let template = `This is a template string with ${name}`;
+```
+**3. Boolean**  
+- Represents logical values: `true` or `false`.
+
+- Often used in conditional statements.
+**Example:** 
+
+```js
+let isActive = true;
+let isComplete = false;
+```
+**4. Undefined**  
+- A variable that has been declared but not assigned a value is of type `undefined`.
+
+**Example:** 
+
+```js
+let user;
+console.log(user); // Output: undefined
+```
+**5. Null** 
+- Represents the intentional absence of any object value.
+ 
+- It is different from `undefined` (which means a variable has been declared but not yet assigned).
+**Example:** 
+
+```js
+let emptyValue = null;
+console.log(emptyValue); // Output: null
+```
+**6. Symbol (ES6)** 
+- Represents a unique and immutable value.
+
+- Often used for object property keys to avoid conflicts.
+**Example:** 
+
+```js
+let symbol1 = Symbol('description');
+let symbol2 = Symbol('description');
+console.log(symbol1 === symbol2); // Output: false
+```
+**7. BigInt (ES11)**  
+- Used to represent integers that are too large to be represented by the `Number` type.
+ 
+- Created by appending `n` to the end of an integer.
+**Example:** 
+
+```js
+let bigNumber = 123456789012345678901234567890n;
+console.log(bigNumber + 1n); // Output: 123456789012345678901234567891n
+```
+**8. Object (Non-Primitive)** 
+- A complex data type used to store collections of data or more complex entities.
+
+- Includes arrays, functions, and objects.
+**Example:** 
+
+```js
+let person = {
+    name: "Alice",
+    age: 30,
+    isStudent: false
+};
+
+let array = [1, 2, 3, 4];
+let func = function() {
+    return "Hello, World!";
+};
+```
+**Summary Table**
+
+| Data Type | Description | Example | 
+| --- | --- | --- | 
+| Number | Numeric values (integers, floats) | let num = 42; | 
+| String | Sequence of characters | let str = "Hello"; | 
+| Boolean | Logical values: true or false | let isTrue = true; | 
+| Undefined | Variable declared but not assigned | let x; | 
+| Null | Represents "no value" | let y = null; | 
+| Symbol | Unique and immutable identifier | let sym = Symbol('id'); | 
+| BigInt | Large integers beyond Number limits | let big = 123n; | 
+| Object | Collection of key-value pairs | let obj = { key: 'value' }; | 
+
+
+
+
+
+<!-- ================================================================== -->
+
 # Conditional Statements and Loops: 
 
 A comprehensive overview of **Conditional Statements**  and **Loops**  in a structured manner, covering concepts applicable across popular programming languages like Python, Java, C++, and JavaScript.

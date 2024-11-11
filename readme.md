@@ -819,3 +819,353 @@ console.log(zip);   // Output: 10001
 These examples cover some of the most common use cases of destructuring in JavaScript. Let me know if you need further clarification or additional examples!
 
 ---
+
+# Funtions
+
+Functions in JavaScript are blocks of reusable code designed to perform a particular task. Functions can take inputs (parameters), perform operations, and return outputs (values).
+
+### **1. Declaring Functions**
+
+There are multiple ways to declare functions in JavaScript. Let's go through each method in detail:
+
+### Types of functions:
+
+1. Function Declaration
+2. Function Expression
+3. Arrow Function
+4. Anonymous Function
+5. Named Function
+6. Immediately Invoked Function Expression (IIFE)
+7. Constructor Function
+8. Higher-Order Function
+9. Callback Function
+10. Recursive Function
+11. Generator Function
+12. Async Function
+13. Pure Function
+14. Impure Function
+
+#### **1.1. Function Declaration (Function Statement)**
+
+This is the most common way to declare a function. It’s hoisted, meaning the function can be called before it’s defined.
+
+```js
+// Function declaration
+function greet() {
+  console.log("Hello, world!");
+}
+
+greet();  // Output: Hello, world!
+```
+
+#### **1.2. Function Expression**
+
+A function expression assigns a function to a variable. Unlike function declarations, function expressions are **not hoisted**.
+
+```js
+// Function expression
+const greet = function() {
+  console.log("Hello, world!");
+};
+
+greet();  // Output: Hello, world!
+```
+
+#### **1.3. Arrow Function**
+
+Arrow functions are a more concise way to write functions, introduced in ES6. They are also known as **lambda functions** in other programming languages. Arrow functions do not have their own `this`, `arguments`, or `super`.
+
+```js
+// Arrow function
+const greet = () => {
+  console.log("Hello, world!");
+};
+
+greet();  // Output: Hello, world!
+```
+
+For one-line functions, the curly braces and `return` keyword can be omitted:
+
+```js
+// Concise arrow function
+const add = (a, b) => a + b;
+
+console.log(add(2, 3));  // Output: 5
+```
+
+#### **1.4. Anonymous Functions**
+
+These are functions that do not have a name and are commonly used in function expressions, event handlers, or as arguments to other functions.
+
+```js
+// Anonymous function in an event handler
+document.getElementById("btn").addEventListener("click", function() {
+  console.log("Button clicked!");
+});
+```
+
+#### **1.5. Immediately Invoked Function Expression (IIFE)**
+
+An IIFE is a function that is executed as soon as it is defined. It's often used to create a **local scope** to avoid polluting the global scope.
+
+```js
+// IIFE
+(function() {
+  console.log("I am an IIFE!");
+})();
+```
+
+---
+
+### **2. Function Parameters and Arguments**
+
+#### **2.1. Parameters**
+
+When defining a function, you can specify **parameters** that the function will accept.
+
+```js
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("Alice");  // Output: Hello, Alice!
+```
+
+#### **2.2. Default Parameters**
+
+ES6 introduced **default parameters** that can be used if no argument is passed for a parameter.
+
+```js
+function greet(name = "Guest") {
+  console.log("Hello, " + name + "!");
+}
+
+greet();         // Output: Hello, Guest!
+greet("Bob");    // Output: Hello, Bob!
+```
+
+#### **2.3. Rest Parameters**
+
+Rest parameters allow a function to accept an indefinite number of arguments as an array.
+
+```js
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4));  // Output: 10
+```
+
+---
+
+### **3. Return Statement**
+
+The `return` keyword is used to return a value from a function. If no `return` statement is provided, the function returns `undefined` by default.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+const result = add(2, 3);
+console.log(result);  // Output: 5
+```
+
+---
+
+### **4. Function Scope and Closures**
+
+#### **4.1. Function Scope**
+
+Variables declared inside a function are scoped to that function and cannot be accessed outside it.
+
+```js
+function testScope() {
+  let x = 10;
+  console.log(x);  // Output: 10
+}
+
+console.log(x);  // Error: x is not defined
+```
+
+#### **4.2. Closures**
+
+A **closure** is a function that retains access to its lexical scope, even when executed outside that scope.
+
+```js
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+counter();  // Output: 1
+counter();  // Output: 2
+counter();  // Output: 3
+```
+
+In the example above, the `inner` function maintains access to the `count` variable from the `outer` function.
+
+---
+
+### **5. Function Binding and `this` Keyword**
+
+#### **5.1. The `this` Keyword**
+
+The `this` keyword refers to the object it is called on. In traditional functions, `this` refers to the global object (or undefined in strict mode). In **arrow functions**, `this` is lexically bound to the context in which it was defined.
+
+```js
+// In regular function
+function showThis() {
+  console.log(this);
+}
+showThis();  // Output: global object (or undefined in strict mode)
+
+// In arrow function
+const showArrowThis = () => {
+  console.log(this);
+};
+showArrowThis();  // Output: The `this` in this context will not refer to the global object but rather its lexical scope
+```
+
+#### **5.2. `bind()`, `call()`, and `apply()`**
+
+These methods are used to explicitly set the value of `this`.
+
+- **`bind()`**: Returns a new function with a bound `this`.
+- **`call()`**: Calls a function with a specified `this` value and arguments provided individually.
+- **`apply()`**: Similar to `call()`, but arguments are passed as an array.
+
+```js
+const person = {
+  name: "Alice",
+  greet: function() {
+    console.log("Hello, " + this.name);
+  }
+};
+
+const greetBob = person.greet.bind({ name: "Bob" });
+greetBob();  // Output: Hello, Bob
+
+person.greet.call({ name: "Charlie" });  // Output: Hello, Charlie
+person.greet.apply({ name: "Dave" });   // Output: Hello, Dave
+```
+
+---
+
+### **6. Anonymous Functions vs Named Functions**
+
+- **Anonymous Functions**: Functions without names, usually used as function expressions or passed as arguments.
+- **Named Functions**: Functions with names, typically used when the function needs to be invoked multiple times or called recursively.
+
+```js
+// Named function
+function greet() {
+  console.log("Hello!");
+}
+
+// Anonymous function
+const greetAnonymous = function() {
+  console.log("Hello!");
+};
+```
+
+---
+
+### **7. Function Hoisting**
+
+- **Hoisting** allows you to call functions before they are declared in the code (only for function declarations, not for function expressions).
+  
+```js
+// Function declaration is hoisted
+greet();  // Output: Hello, world!
+
+function greet() {
+  console.log("Hello, world!");
+}
+```
+
+However, **function expressions** are not hoisted:
+```js
+greet();  // Error: greet is not a function
+
+const greet = function() {
+  console.log("Hello, world!");
+};
+```
+
+---
+
+### **8. Callbacks and Higher-Order Functions**
+
+#### **8.1. Callback Functions**
+
+A **callback function** is a function passed as an argument to another function. It is often used in asynchronous operations like events and timers.
+
+```js
+function greeting(name, callback) {
+  console.log("Hello, " + name);
+  callback();
+}
+
+function sayGoodbye() {
+  console.log("Goodbye!");
+}
+
+greeting("Alice", sayGoodbye);
+// Output:
+// Hello, Alice
+// Goodbye!
+```
+
+#### **8.2. Higher-Order Functions**
+
+A **higher-order function** is a function that either accepts another function as an argument or returns a function as a result.
+
+```js
+// Higher-order function
+function multiplier(factor) {
+  return function(number) {
+    return number * factor;
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5));  // Output: 10
+```
+
+---
+
+### **9. Arrow Functions and `this`**
+
+Arrow functions behave differently with the `this` keyword. In a regular function, `this` is determined by the object the function is called on, but in an arrow function, `this` is inherited from the surrounding context (lexical scoping).
+
+```js
+const obj = {
+  name: "Alice",
+  regularFunction: function() {
+    console.log(this.name); // Output: Alice
+  },
+  arrowFunction: () => {
+    console.log(this.name); // Output: undefined (or window object in browsers)
+  }
+};
+
+obj.regularFunction();  // Output: Alice
+obj.arrowFunction();    // Output: undefined
+```
+
+---
+
+### **Summary**
+
+- **Functions** in JavaScript can be declared in various ways: function declarations, function expressions, and arrow functions.
+- Functions can take parameters, and return values.
+- **Arrow functions** have a shorter syntax and behave differently with the `this` keyword.
+- **Closures** allow functions to maintain access to their lexical scope.
+- JavaScript supports **higher-order functions** and **callbacks**, making it highly functional and versatile.
+
+Let me know if you'd like to dive deeper into any specific area!

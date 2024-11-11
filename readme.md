@@ -253,7 +253,9 @@ for (let num of numbers) {
 2
 3
 ```
-**Summary of JavaScript Loops** | Loop Type | Use Case | 
+**Summary of JavaScript Loops**
+
+ | Loop Type | Use Case | 
 | --- | --- | 
 | For | When the number of iterations is known. | 
 | While | When the number of iterations is unknown. | 

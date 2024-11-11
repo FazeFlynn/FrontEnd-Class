@@ -123,6 +123,10 @@ let func = function() {
 
 <!-- ================================================================== -->
 
+
+---
+
+
 # Conditional Statements and Loops: 
 
 A comprehensive overview of **Conditional Statements**  and **Loops**  in a structured manner, covering concepts applicable across popular programming languages like Python, Java, C++, and JavaScript.
@@ -382,6 +386,8 @@ for (let num of numbers) {
 
 <!-- ================================================================================================ -->
 
+---
+
 
 # Arrays
 
@@ -520,3 +526,195 @@ console.log(sum); // Output: 10
 | `map()`    | Transforms each element             |
 | `filter()` | Filters elements based on condition |
 | `reduce()` | Reduces array to single value       |
+
+
+---
+
+# **Hoisting in JavaScript**
+
+**Hoisting** is a JavaScript behavior where variable and function declarations are **moved to the top of their containing scope** (global or local) during the compilation phase, before the code is executed.
+
+#### **1. Variable Hoisting**
+- Variables declared using `var` are **hoisted**, but only their declarations, not the assignments.
+- Variables declared with `let` and `const` are **hoisted** but are placed in a **"temporal dead zone" (TDZ)** until they are initialized, making them inaccessible before their declaration.
+
+**Example with `var`:**
+```js
+console.log(x); // Output: undefined (declaration hoisted, value not assigned)
+var x = 5;
+console.log(x); // Output: 5
+```
+
+**Example with `let`/`const`:**
+```js
+console.log(y); // ReferenceError: Cannot access 'y' before initialization
+let y = 10;
+```
+
+#### **2. Function Hoisting**
+- Function declarations are **fully hoisted**, meaning you can call the function even before it is defined in the code.
+- Function expressions (using `var`, `let`, or `const`) are **not hoisted**.
+
+**Example of Function Declaration:**
+```js
+sayHello(); // Output: Hello!
+function sayHello() {
+    console.log("Hello!");
+}
+```
+
+**Example of Function Expression:**
+```js
+greet(); // TypeError: greet is not a function
+var greet = function() {
+    console.log("Hi!");
+};
+```
+
+### **Summary of Hoisting in JavaScript**
+
+| Type                | Hoisted | Accessible Before Declaration | Initialization |
+|---------------------|---------|-------------------------------|----------------|
+| **`var` variable**  | Yes     | Yes (value: `undefined`)      | No             |
+| **`let`/`const` variable** | Yes     | No (TDZ error)                | No             |
+| **Function declaration**   | Yes     | Yes                           | Yes            |
+| **Function expression**    | No      | No (treated as a variable)    | No             |
+
+---
+
+
+# Objects in Javascript
+
+In JavaScript, an **object** is a collection of **key-value pairs** where the keys are called **properties** and the values can be any data type (string, number, boolean, array, function, or another object). Objects are used to store and manage structured data.
+
+#### **Creating Objects:**
+
+1. **Using Object Literal:**
+```js
+const person = {
+    name: "John",
+    age: 30,
+    isStudent: false,
+    greet: function() {
+        console.log("Hello!");
+    }
+};
+```
+
+2. **Using Constructor Function:**
+```js
+function Car(brand, model) {
+    this.brand = brand;
+    this.model = model;
+}
+
+const myCar = new Car("Toyota", "Corolla");
+```
+
+3. **Using `Object.create()`:**
+```js
+const prototypeObj = { type: "vehicle" };
+const car = Object.create(prototypeObj);
+car.brand = "Honda";
+```
+
+4. **Using `new Object()`:**
+```js
+const obj = new Object();
+obj.name = "Alice";
+obj.age = 25;
+```
+
+### **Accessing Object Properties:**
+
+- **Dot Notation:** `object.property`
+- **Bracket Notation:** `object["property"]`
+
+**Example:**
+```js
+console.log(person.name);       // Output: John
+console.log(person["age"]);     // Output: 30
+```
+
+### **Popular Object Methods and Properties:**
+
+#### **1. `Object.keys()`**
+- Returns an array of the object's own enumerable property names.
+```js
+const keys = Object.keys(person);
+console.log(keys); // Output: ["name", "age", "isStudent", "greet"]
+```
+
+#### **2. `Object.values()`**
+- Returns an array of the object's own enumerable property values.
+```js
+const values = Object.values(person);
+console.log(values); // Output: ["John", 30, false, function]
+```
+
+#### **3. `Object.entries()`**
+- Returns an array of key-value pairs.
+```js
+const entries = Object.entries(person);
+console.log(entries); // Output: [["name", "John"], ["age", 30], ["isStudent", false]]
+```
+
+#### **4. `Object.assign()`**
+- Copies properties from one or more source objects to a target object.
+```js
+const target = { a: 1 };
+const source = { b: 2, c: 3 };
+Object.assign(target, source);
+console.log(target); // Output: { a: 1, b: 2, c: 3 }
+```
+
+#### **5. `Object.freeze()`**
+- Makes an object **immutable**, preventing any changes.
+```js
+const obj = { name: "Tom" };
+Object.freeze(obj);
+obj.name = "Jerry"; // This will not change the object
+console.log(obj.name); // Output: Tom
+```
+
+#### **6. `Object.seal()`**
+- Prevents adding or removing properties but allows modification of existing properties.
+```js
+const user = { username: "admin" };
+Object.seal(user);
+user.username = "guest";  // Allowed
+user.password = "12345";  // Ignored
+console.log(user);        // Output: { username: "guest" }
+```
+
+#### **7. `hasOwnProperty()`**
+- Checks if the object has a specific property.
+```js
+console.log(person.hasOwnProperty("name")); // Output: true
+console.log(person.hasOwnProperty("address")); // Output: false
+```
+
+#### **8. `Object.prototype.toString()`**
+- Returns a string representation of the object.
+```js
+console.log(person.toString()); // Output: "[object Object]"
+```
+
+### **Summary Table of Popular Object Methods**
+
+| Method               | Description                              |
+|----------------------|------------------------------------------|
+| `Object.keys()`      | Returns an array of property names       |
+| `Object.values()`    | Returns an array of property values      |
+| `Object.entries()`   | Returns an array of key-value pairs      |
+| `Object.assign()`    | Copies properties to a target object     |
+| `Object.freeze()`    | Makes an object immutable                |
+| `Object.seal()`      | Prevents adding/removing properties      |
+| `hasOwnProperty()`   | Checks if the object has a property      |
+| `toString()`         | Returns string representation of object  |
+
+---
+
+
+
+

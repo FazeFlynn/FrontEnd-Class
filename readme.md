@@ -715,6 +715,107 @@ console.log(person.toString()); // Output: "[object Object]"
 
 ---
 
+# Array and Object Destructuring
 
+### **Array Destructuring**
 
+**Array destructuring** allows you to unpack values from an array into distinct variables in a concise way.
 
+#### **Example 1: Simple Array Destructuring**
+```js
+let fruits = ["Apple", "Banana", "Mango"];
+
+// Destructuring the array
+let [first, second, third] = fruits;
+
+console.log(first);  // Output: Apple
+console.log(second); // Output: Banana
+console.log(third);  // Output: Mango
+```
+
+#### **Example 2: Skipping Elements in Array Destructuring**
+```js
+let colors = ["Red", "Green", "Blue"];
+
+// Skipping the second element
+let [firstColor, , thirdColor] = colors;
+
+console.log(firstColor); // Output: Red
+console.log(thirdColor); // Output: Blue
+```
+
+#### **Example 3: Default Values in Array Destructuring**
+```js
+let numbers = [1];
+
+// Destructuring with a default value
+let [a, b = 10] = numbers;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 10 (default value)
+```
+
+---
+
+### **Object Destructuring**
+
+**Object destructuring** allows you to unpack properties from an object into variables in a concise way.
+
+#### **Example 1: Simple Object Destructuring**
+```js
+let person = { name: "John", age: 30 };
+
+// Destructuring the object
+let { name, age } = person;
+
+console.log(name); // Output: John
+console.log(age);  // Output: 30
+```
+
+#### **Example 2: Renaming Variables in Object Destructuring**
+```js
+let person = { name: "Alice", age: 25 };
+
+// Renaming the variables during destructuring
+let { name: fullName, age: yearsOld } = person;
+
+console.log(fullName);  // Output: Alice
+console.log(yearsOld);  // Output: 25
+```
+
+#### **Example 3: Default Values in Object Destructuring**
+```js
+let person = { name: "Bob" };
+
+// Providing a default value for a missing property
+let { name, age = 40 } = person;
+
+console.log(name); // Output: Bob
+console.log(age);  // Output: 40 (default value)
+```
+
+#### **Example 4: Nested Object Destructuring**
+```js
+let user = {
+  name: "Jane",
+  address: { city: "New York", zip: "10001" }
+};
+
+// Destructuring nested objects
+let { name, address: { city, zip } } = user;
+
+console.log(name);  // Output: Jane
+console.log(city);  // Output: New York
+console.log(zip);   // Output: 10001
+```
+
+### **Summary**
+
+- **Array Destructuring**: Allows you to extract values from arrays into variables.
+- **Object Destructuring**: Allows you to extract properties from objects into variables.
+- **Default Values**: You can provide default values for missing values during destructuring.
+- **Renaming**: You can rename variables during destructuring by using a colon (`:`).
+
+These examples cover some of the most common use cases of destructuring in JavaScript. Let me know if you need further clarification or additional examples!
+
+---

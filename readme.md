@@ -1168,4 +1168,10 @@ obj.arrowFunction();    // Output: undefined
 - **Closures** allow functions to maintain access to their lexical scope.
 - JavaScript supports **higher-order functions** and **callbacks**, making it highly functional and versatile.
 
-Let me know if you'd like to dive deeper into any specific area!
+---
+
+# Homeworks 
+
+- eventListeners -flex
+- make it circle if clicked
+- fontwieght

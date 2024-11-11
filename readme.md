@@ -382,3 +382,141 @@ for (let num of numbers) {
 
 <!-- ================================================================================================ -->
 
+
+# Arrays
+
+An **array** is a special type of object in JavaScript that allows you to store multiple values in a single variable. It can hold different data types (numbers, strings, objects, etc.).
+
+#### **Array Declaration:**
+```js
+// Using square brackets (recommended)
+let fruits = ["Apple", "Banana", "Mango"];
+
+// Using the Array constructor
+let numbers = new Array(1, 2, 3, 4);
+```
+
+#### **Accessing Array Elements:**
+- Use **indexing** to access elements. Array indices start from **0**.
+```js
+console.log(fruits[0]); // Output: Apple
+console.log(fruits[2]); // Output: Mango
+```
+
+#### **Modifying Array Elements:**
+```js
+fruits[1] = "Orange";
+console.log(fruits); // Output: ["Apple", "Orange", "Mango"]
+```
+
+### **Popular Array Methods in JavaScript**
+
+#### **1. `push()`**
+- Adds one or more elements to the **end** of an array.
+```js
+fruits.push("Grapes");
+console.log(fruits); // Output: ["Apple", "Orange", "Mango", "Grapes"]
+```
+
+#### **2. `pop()`**
+- Removes the **last** element from an array.
+```js
+let lastFruit = fruits.pop();
+console.log(lastFruit); // Output: Grapes
+console.log(fruits);    // Output: ["Apple", "Orange", "Mango"]
+```
+
+#### **3. `shift()`**
+- Removes the **first** element from an array.
+```js
+let firstFruit = fruits.shift();
+console.log(firstFruit); // Output: Apple
+console.log(fruits);     // Output: ["Orange", "Mango"]
+```
+
+#### **4. `unshift()`**
+- Adds one or more elements to the **beginning** of an array.
+```js
+fruits.unshift("Strawberry");
+console.log(fruits); // Output: ["Strawberry", "Orange", "Mango"]
+```
+
+#### **5. `splice()`**
+- Adds, removes, or replaces elements in an array.
+```js
+// Remove 1 element at index 1
+fruits.splice(1, 1);
+console.log(fruits); // Output: ["Strawberry", "Mango"]
+
+// Add elements at index 1
+fruits.splice(1, 0, "Peach", "Pineapple");
+console.log(fruits); // Output: ["Strawberry", "Peach", "Pineapple", "Mango"]
+```
+
+#### **6. `slice()`**
+- Returns a shallow copy of a portion of an array.
+```js
+let slicedFruits = fruits.slice(1, 3);
+console.log(slicedFruits); // Output: ["Peach", "Pineapple"]
+```
+
+#### **7. `concat()`**
+- Merges two or more arrays.
+```js
+let moreFruits = ["Kiwi", "Watermelon"];
+let allFruits = fruits.concat(moreFruits);
+console.log(allFruits); // Output: ["Strawberry", "Peach", "Pineapple", "Mango", "Kiwi", "Watermelon"]
+```
+
+#### **8. `indexOf()`**
+- Returns the **index** of the first occurrence of a specified element.
+```js
+let index = fruits.indexOf("Mango");
+console.log(index); // Output: 3
+```
+
+#### **9. `includes()`**
+- Checks if an array contains a specified element.
+```js
+let hasPeach = fruits.includes("Peach");
+console.log(hasPeach); // Output: true
+```
+
+#### **10. `map()`**
+- Creates a new array by applying a function to each element.
+```js
+let numbers = [1, 2, 3, 4];
+let squares = numbers.map(num => num * num);
+console.log(squares); // Output: [1, 4, 9, 16]
+```
+
+#### **11. `filter()`**
+- Creates a new array with elements that pass a test.
+```js
+let evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // Output: [2, 4]
+```
+
+#### **12. `reduce()`**
+- Reduces an array to a single value by applying a function.
+```js
+let sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // Output: 10
+```
+
+### **Summary Table of Array Methods**
+
+| Method     | Description                         |
+|------------|-------------------------------------|
+| `push()`   | Adds element(s) to the end          |
+| `pop()`    | Removes the last element            |
+| `shift()`  | Removes the first element           |
+| `unshift()`| Adds element(s) to the beginning    |
+| `splice()` | Adds/removes elements               |
+| `slice()`  | Returns a portion of an array       |
+| `concat()` | Merges arrays                       |
+| `indexOf()`| Finds the index of an element       |
+| `includes()`| Checks if element is in array      |
+| `map()`    | Transforms each element             |
+| `filter()` | Filters elements based on condition |
+| `reduce()` | Reduces array to single value       |

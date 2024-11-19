@@ -1210,10 +1210,6 @@ obj.arrowFunction();    // Output: undefined
 ---
 
 
-$$
-{Stuff for 2nd Insem}
-$$
-
 # 2nd InSem
 
 ### **1. Arrow Functions in JavaScript**

@@ -11,6 +11,18 @@ swayam and aicte for internship and certification -->
 
 # DataTypes in Js
 
+There are 8 main datatypes in Js
+
+- 1.Number
+- 2.String
+- 3.Boolean
+- 4.Undefined
+- 5.Null
+- 6.Symbol (ES6)
+- 7.BigInt (ES11)
+- 8.Object (Non Primitive)
+
+
 **Data Types in JavaScript** JavaScript has **7 primitive data types**  and **1 non-primitive (reference) data type**.
 
 **1. Number** 
@@ -117,7 +129,32 @@ let func = function() {
 | BigInt | Large integers beyond Number limits | let big = 123n; | 
 | Object | Collection of key-value pairs | let obj = { key: 'value' }; | 
 
+<!-- <details>
 
+<summary>Heirarchy of DataTypes in Js</summary> -->
+
+```javascript
+JavaScript Data Types
+├── 1. Primitive Data Types
+│   ├── a. Number
+│   ├── b. BigInt
+│   ├── c. String
+│   ├── d. Boolean
+│   ├── e. Undefined
+│   ├── f. Null
+│   └── g. Symbol
+└── 2. Non-Primitive (Reference) Data Types
+    ├── a. Object
+    │   ├── i. Array
+    │   ├── ii. Function
+    │   ├── iii. Date
+    │   ├── iv. RegExp
+    │   └── v. Error
+    └── b. Map and WeakMap
+        └── i. Set and WeakSet
+```
+
+<!-- </details> -->
 
 
 
@@ -1169,10 +1206,1069 @@ obj.arrowFunction();    // Output: undefined
 - **Closures** allow functions to maintain access to their lexical scope.
 - JavaScript supports **higher-order functions** and **callbacks**, making it highly functional and versatile.
 
+
+---
+$$
+\Large \text{Stuff for 2nd Insem}
+$$
+
+# 2nd InSem
+
+### **1. Arrow Functions in JavaScript**
+
+Arrow functions provide a concise way to write functions using the `=>` syntax. They differ from regular functions primarily in their handling of the `this` keyword.
+
+#### **Key Features:**
+- **Shorter Syntax**: Removes the need for the `function` keyword.
+- **Lexical `this` Binding**: `this` is inherited from the surrounding scope.
+- **Cannot Be Used as Constructors**: No `new` keyword support.
+- **No Arguments Object**: Use rest parameters instead (`...args`).
+
+#### **Syntax:**
+```js
+const functionName = (param1, param2) => expression;
+```
+
+#### **Examples:**
+1. **Basic Arrow Function:**
+   ```js
+   const add = (a, b) => a + b;
+   console.log(add(2, 3));  // Output: 5
+   ```
+
+2. **Single Parameter (No Parentheses):**
+   ```js
+   const greet = name => `Hello, ${name}`;
+   console.log(greet("John"));  // Output: Hello, John
+   ```
+
+3. **No Parameters:**
+   ```js
+   const sayHello = () => console.log("Hello!");
+   sayHello();  // Output: Hello!
+   ```
+
+4. **Multiline Arrow Function (with `{}` and `return`):**
+   ```js
+   const multiply = (a, b) => {
+       const result = a * b;
+       return result;
+   };
+   console.log(multiply(2, 3));  // Output: 6
+   ```
+
+#### **Limitations:**
+- No `this` binding: Arrow functions cannot be used where `this` is dynamically needed (e.g., event listeners with `this`).
+- No `prototype` property.
+
 ---
 
-# Homeworks 
+### **2. Loops in JavaScript**
 
-- eventListeners -flex
-- make it circle if clicked
-- fontwieght
+Loops are used to execute a block of code repeatedly until a condition is met.
+
+#### **Types of Loops:**
+
+1. **`for` Loop**  
+Executes a block of code a specified number of times.
+```js
+for (let i = 0; i < 5; i++) {
+  console.log(i);  // Output: 0, 1, 2, 3, 4
+}
+```
+
+2. **`while` Loop**  
+Executes a block of code as long as a condition is true.
+```js
+let i = 0;
+while (i < 3) {
+  console.log(i);  // Output: 0, 1, 2
+  i++;
+}
+```
+
+3. **`do...while` Loop**  
+Executes the block at least once, then continues while the condition is true.
+```js
+let i = 0;
+do {
+  console.log(i);  // Output: 0, 1, 2
+  i++;
+} while (i < 3);
+```
+
+4. **`for...in` Loop**  
+Iterates over the enumerable properties (keys) of an object.
+```js
+const obj = { a: 1, b: 2 };
+for (let key in obj) {
+  console.log(key, obj[key]);  // Output: a 1, b 2
+}
+```
+
+5. **`for...of` Loop**  
+Iterates over iterable objects (e.g., arrays, strings).
+```js
+const arr = ['a', 'b', 'c'];
+for (let value of arr) {
+  console.log(value);  // Output: a, b, c
+}
+```
+
+6. **`break` and `continue` Statements**  
+- `break`: Exit the loop prematurely.
+- `continue`: Skip the current iteration.
+```js
+for (let i = 0; i < 5; i++) {
+  if (i === 3) break;
+  console.log(i);  // Output: 0, 1, 2
+}
+```
+
+---
+
+### **3. DOM (Document Object Model)**
+
+#### **What is DOM?**
+The DOM is a programming interface for web documents. It represents the structure of a web page as a tree of objects, allowing developers to access and manipulate HTML and CSS programmatically.
+
+#### **Why is it Useful?**
+1. **Dynamic Content Updates**: Modify HTML elements, attributes, and styles dynamically.
+2. **Event Handling**: Add interactivity by responding to user actions (e.g., clicks, keypresses).
+3. **Traversal and Manipulation**: Traverse, add, or remove elements from the DOM tree.
+4. **Access Element Properties**: Retrieve and update the content and attributes of elements.
+
+#### **DOM Tree Example:**
+```html
+<!DOCTYPE html>
+<html>
+  <head><title>Document</title></head>
+  <body>
+    <h1 id="title">Hello</h1>
+    <p class="text">This is the DOM</p>
+  </body>
+</html>
+```
+
+#### **Accessing DOM Elements:**
+1. By ID:
+   ```js
+   const title = document.getElementById("title");
+   console.log(title.textContent);  // Output: Hello
+   ```
+
+2. By Class Name:
+   ```js
+   const paragraphs = document.getElementsByClassName("text");
+   console.log(paragraphs[0].textContent);  // Output: This is the DOM
+   ```
+
+3. By Query Selector:
+   ```js
+   const heading = document.querySelector("h1");
+   console.log(heading.textContent);  // Output: Hello
+   ```
+
+#### **Manipulating the DOM:**
+1. Change Content:
+   ```js
+   title.textContent = "Hello, World!";
+   ```
+
+2. Add a New Element:
+   ```js
+   const newElement = document.createElement("div");
+   newElement.textContent = "I am new!";
+   document.body.appendChild(newElement);
+   ```
+
+3. Modify Attributes:
+   ```js
+   title.setAttribute("style", "color: blue;");
+   ```
+
+4. Remove Element:
+   ```js
+   document.body.removeChild(paragraphs[0]);
+   ```
+
+---
+
+## Assignment 3rd
+
+`Section A`
+
+### **Q.1 What is JavaScript?**
+**JavaScript** is a high-level, interpreted programming language used to create interactive effects and dynamic content on websites. It is a core part of web development, alongside HTML and CSS, and runs on the client side (in the browser).
+
+### **Q.2 What are the primitive data types in JavaScript?**
+JavaScript has **7 primitive data types**:
+1. **Number**: Represents numeric values (integer or floating-point).  
+   Example: `let num = 42;`
+2. **String**: Represents a sequence of characters.  
+   Example: `let name = "John";`
+3. **Boolean**: Represents `true` or `false`.  
+   Example: `let isActive = true;`
+4. **Undefined**: Represents a variable that has been declared but not assigned a value.  
+   Example: `let x;  // undefined`
+5. **Null**: Represents the absence of any value or object.  
+   Example: `let obj = null;`
+6. **Symbol**: Represents a unique and immutable value used as an identifier for object properties.  
+   Example: `let sym = Symbol('description');`
+7. **BigInt**: Represents numbers larger than `2^53 - 1`.  
+   Example: `let bigNum = 1234567890123456789012345678901234567890n;`
+
+### **Q.3 What are the different ways to include JavaScript in an HTML document?**
+1. **Internal JavaScript**: Included directly within a `<script>` tag inside the HTML file.  
+   Example:
+   ```html
+   <script>
+     console.log("Hello, World!");
+   </script>
+   ```
+2. **External JavaScript**: Linked to an external `.js` file using the `src` attribute.  
+   Example:
+   ```html
+   <script src="script.js"></script>
+   ```
+3. **Inline JavaScript**: Embedded directly within an HTML element's event handler.  
+   Example:
+   ```html
+   <button onclick="alert('Clicked!')">Click Me</button>
+   ```
+
+### **Q.4 How do you use let and const to declare variables?**
+- **`let`**: Declares a block-scoped variable that can be reassigned.
+  Example:
+  ```js
+  let age = 25;
+  age = 30;  // Reassigned
+  ```
+  
+- **`const`**: Declares a block-scoped variable that **cannot** be reassigned.
+  Example:
+  ```js
+  const name = "Alice";
+  // name = "Bob";  // Error: Assignment to constant variable.
+  ```
+
+### **Q.5 How do you write conditional statements using if and else?**
+Conditional statements in JavaScript use `if`, `else if`, and `else` to execute code based on conditions.
+
+- **`if`**: Executes a block of code if the condition is `true`.
+- **`else`**: Executes a block of code if the condition is `false`.
+- **`else if`**: Specifies a new condition if the previous condition is `false`.
+
+Example:
+```js
+let age = 18;
+
+if (age >= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}
+```
+
+### **Summary:**
+- **`if`**: Checks condition.
+- **`else if`**: Checks another condition.
+- **`else`**: Runs if all previous conditions are false.
+
+---
+
+`Section B`
+
+### **Q.1 What are the different ways to define functions in JavaScript (function declaration, function expression)?**
+
+There are two primary ways to define functions in JavaScript:
+
+#### **1. Function Declaration**  
+A function declaration defines a function using the `function` keyword followed by the function name, parameters (optional), and the body. It is hoisted, meaning it can be called before its definition in the code.
+
+**Syntax:**
+```js
+function functionName(param1, param2) {
+  // Function body
+  return param1 + param2;
+}
+```
+
+**Example:**
+```js
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+console.log(greet("Alice"));  // Output: Hello, Alice!
+```
+
+#### **2. Function Expression**  
+A function expression defines a function and assigns it to a variable. Unlike function declarations, function expressions are **not hoisted** and can only be called after they are defined.
+
+**Syntax:**
+```js
+const functionName = function(param1, param2) {
+  // Function body
+  return param1 + param2;
+};
+```
+
+**Example:**
+```js
+const greet = function(name) {
+  return "Hello, " + name + "!";
+};
+console.log(greet("Bob"));  // Output: Hello, Bob!
+```
+
+#### **Key Differences**:
+- **Hoisting**: Function declarations are hoisted, while function expressions are not.
+- **Named vs. Anonymous**: Function declarations are usually named, while function expressions can be anonymous (i.e., without a name).
+
+---
+
+### **Q.2 Explain the concept of function parameters and arguments.**
+
+#### **Function Parameters:**
+Parameters are variables defined in the function declaration or expression that represent the values the function will receive when called. They act as placeholders for the actual values (arguments) passed to the function.
+
+**Syntax:**
+```js
+function add(a, b) {
+  return a + b;
+}
+```
+In this case, `a` and `b` are the **parameters**.
+
+#### **Function Arguments:**
+Arguments are the actual values passed to the function when it is invoked. These values replace the parameters in the function definition.
+
+**Example:**
+```js
+console.log(add(3, 4));  // Output: 7
+```
+Here, `3` and `4` are the **arguments** passed to the function `add`.
+
+#### **Key Differences:**
+- **Parameters**: Defined in the function declaration.
+- **Arguments**: Passed when the function is invoked.
+
+---
+
+### **Q.3 Explain the three logical operators: AND, OR, and NOT**
+
+#### **1. AND (`&&`)**  
+The `AND` operator returns `true` only if **both operands** are `true`; otherwise, it returns `false`.
+
+**Syntax:**
+```js
+operand1 && operand2
+```
+
+**Example:**
+```js
+console.log(true && true);   // Output: true
+console.log(true && false);  // Output: false
+console.log(false && false); // Output: false
+```
+
+#### **2. OR (`||`)**  
+The `OR` operator returns `true` if **at least one operand** is `true`; it returns `false` only if both operands are `false`.
+
+**Syntax:**
+```js
+operand1 || operand2
+```
+
+**Example:**
+```js
+console.log(true || false);  // Output: true
+console.log(false || false); // Output: false
+console.log(true || true);   // Output: true
+```
+
+#### **3. NOT (`!`)**  
+The `NOT` operator reverses the logical state of its operand. If the operand is `true`, it returns `false`, and if the operand is `false`, it returns `true`.
+
+**Syntax:**
+```js
+!operand
+```
+
+**Example:**
+```js
+console.log(!true);   // Output: false
+console.log(!false);  // Output: true
+```
+
+---
+
+### **Summary:**
+- **Logical AND (`&&`)**: Returns `true` if both conditions are true.
+- **Logical OR (`||`)**: Returns `true` if at least one condition is true.
+- **Logical NOT (`!`)**: Inverts the logical value of the operand.
+
+---
+
+`Section C`
+
+### **Q.1 What is the difference between synchronous and asynchronous JavaScript? Explain the concept of the event loop and how it handles asynchronous operations.**
+
+#### **1. Synchronous JavaScript:**
+In **synchronous** programming, tasks are executed **one after another** in the order they are written. The program waits for one task to complete before moving to the next one.
+
+- **Behavior**: Each operation blocks the thread until it's completed.
+- **Example**: 
+  ```js
+  console.log("Start");
+  console.log("Middle");
+  console.log("End");
+  ```
+  Output:
+  ```
+  Start
+  Middle
+  End
+  ```
+  In synchronous code, the program executes each `console.log()` statement one after the other, blocking the next task until the previous one finishes.
+
+#### **2. Asynchronous JavaScript:**
+In **asynchronous** programming, tasks are executed **independently**, allowing the program to continue running without waiting for a task to finish. This is especially useful for operations that take time, like reading a file, making a network request, or waiting for a user input.
+
+- **Behavior**: The program moves to the next task without waiting for the current task to finish, using mechanisms like callbacks, promises, or async/await to handle when the task completes.
+- **Example**:
+  ```js
+  setTimeout(() => {
+    console.log("This runs last");
+  }, 1000);
+  console.log("This runs first");
+  ```
+  Output:
+  ```
+  This runs first
+  This runs last
+  ```
+
+#### **3. The Event Loop:**
+The **event loop** is a mechanism in JavaScript that allows asynchronous operations to run without blocking the main thread. It works alongside the **call stack** and **message queue** to manage the execution of code.
+
+- **Call Stack**: The call stack holds the functions that are being executed. If a function has a synchronous operation, it will block the stack until it's complete.
+- **Message Queue**: The message queue holds asynchronous tasks (like callbacks, promises, etc.) that are waiting for the call stack to be clear before they can be executed.
+- **Event Loop**: The event loop constantly checks if the call stack is empty. If it is, it moves the first task from the message queue to the call stack.
+
+**How the event loop works**:
+1. Synchronous tasks are added to the **call stack** and executed one by one.
+2. When an asynchronous task is encountered (like `setTimeout`), it is placed in the **message queue**.
+3. Once the call stack is empty, the event loop picks tasks from the message queue and adds them to the call stack for execution.
+
+---
+
+### **Q.2 What is the DOM and how does it relate to JavaScript? Explain how JavaScript can manipulate the DOM to change the structure and style of a web page.**
+
+#### **1. What is the DOM (Document Object Model)?**
+The **DOM** is a programming interface for web documents. It represents the page so that programs (like JavaScript) can interact with it, modifying the structure, style, and content dynamically. The DOM represents the document as a tree of nodes, where each node corresponds to a part of the document (e.g., elements, attributes, text).
+
+- The DOM provides a structured representation of the HTML document as an object.
+- JavaScript interacts with the DOM to **change the content**, **structure**, or **style** of the web page.
+
+#### **2. How JavaScript interacts with the DOM:**
+JavaScript uses the DOM API to access and manipulate web elements. JavaScript can modify:
+1. **Content**: Update text or HTML content within elements.
+2. **Structure**: Add, remove, or change HTML elements.
+3. **Style**: Modify CSS properties to change the appearance of elements.
+
+#### **Example 1: Changing content**  
+```js
+// Accessing the element with id "header"
+let header = document.getElementById("header");
+header.innerHTML = "Welcome to My Website!";  // Modifies the content inside the header
+```
+
+#### **Example 2: Changing style**  
+```js
+let paragraph = document.getElementById("text");
+paragraph.style.color = "blue";  // Changes text color to blue
+paragraph.style.fontSize = "20px";  // Changes font size to 20px
+```
+
+#### **Example 3: Adding a new element**  
+```js
+let newElement = document.createElement("div");
+newElement.innerHTML = "This is a new div element!";
+document.body.appendChild(newElement);  // Appends the new element to the body
+```
+
+In summary, JavaScript uses the DOM to:
+- Access HTML elements (`getElementById`, `querySelector`, etc.)
+- Modify content (`innerHTML`, `textContent`)
+- Manipulate attributes (`setAttribute`, `removeAttribute`)
+- Apply styles (`style`)
+- Handle events (`addEventListener`)
+
+---
+
+### **Q.3 How do Promises and async/await work in modern JavaScript? Discuss their usage in handling asynchronous operations and improving code readability.**
+
+#### **1. Promises:**
+A **Promise** is an object representing the eventual completion (or failure) of an asynchronous operation. It is used to handle asynchronous code in a more manageable way, replacing callback-based solutions.
+
+A promise can be in one of three states:
+- **Pending**: Initial state; the operation is still in progress.
+- **Fulfilled**: The operation completed successfully.
+- **Rejected**: The operation failed.
+
+**Syntax:**
+```js
+let promise = new Promise((resolve, reject) => {
+  let success = true;  // Simulate some condition
+  if (success) {
+    resolve("Operation successful!");
+  } else {
+    reject("Operation failed!");
+  }
+});
+```
+
+**Handling promises:**
+- **`then()`**: Runs when the promise is fulfilled.
+- **`catch()`**: Runs when the promise is rejected.
+
+**Example:**
+```js
+let promise = new Promise((resolve, reject) => {
+  let success = true;
+  if (success) {
+    resolve("Data fetched successfully");
+  } else {
+    reject("Failed to fetch data");
+  }
+});
+
+promise.then((result) => {
+  console.log(result);  // Output: Data fetched successfully
+}).catch((error) => {
+  console.log(error);   // Output: Failed to fetch data
+});
+```
+
+#### **2. async/await:**
+The **async/await** syntax provides a more readable way to handle asynchronous code and promises.
+
+- **`async`**: Declares a function as asynchronous, meaning it will return a promise.
+- **`await`**: Pauses the execution of the async function until the promise is resolved or rejected.
+
+**Syntax:**
+```js
+async function fetchData() {
+  let data = await someAsyncOperation();
+  console.log(data);
+}
+```
+
+**Example:**
+```js
+// Using async/await with promises
+async function fetchData() {
+  try {
+    let response = await fetch('https://api.example.com/data');
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+fetchData();
+```
+
+#### **Advantages of async/await over promises**:
+1. **Readability**: The code looks more like synchronous code, which is easier to follow.
+2. **Error Handling**: `try/catch` can be used directly, making error handling more straightforward.
+3. **Control Flow**: Eliminates the need for multiple `.then()` chains.
+
+#### **Summary of Promises vs async/await**:
+- **Promises**: Provides `.then()` and `.catch()` to handle success and failure of asynchronous operations.
+- **async/await**: Simplifies asynchronous code, making it look and behave more like synchronous code, with `await` pausing execution until a promise resolves.
+
+---
+
+### **Summary:**
+- **Synchronous vs Asynchronous**: Synchronous operations block the thread, while asynchronous operations allow the code to continue executing.
+- **DOM**: The DOM allows JavaScript to interact with and manipulate the structure, content, and style of a web page.
+- **Promises & async/await**: Promises handle asynchronous operations, and async/await simplifies working with promises, making the code more readable and maintainable.
+
+---
+
+## Assignment 4th
+
+`Section A`
+
+### **Q.1 What is React?**
+React is a **JavaScript library** for building **user interfaces** (UIs), primarily for single-page applications (SPAs). It allows developers to build reusable UI components and manage the state of applications efficiently. React uses a **declarative** approach, meaning you describe how the UI should look for a given state, and React takes care of updating the DOM when the state changes.
+
+**Example**:
+```js
+import React from 'react';
+
+function App() {
+  return <h1>Hello, React!</h1>;
+}
+
+export default App;
+```
+
+---
+
+### **Q.2 What are JSX and components?**
+
+#### **JSX**:
+JSX (JavaScript XML) is a **syntax extension** for JavaScript that allows you to write HTML-like code within JavaScript. It is used in React to describe the UI structure. Although it looks like HTML, JSX is ultimately transformed into JavaScript code by React.
+
+**Example of JSX**:
+```js
+const element = <h1>Hello, world!</h1>;
+```
+JSX allows you to embed dynamic expressions and variables inside the HTML-like syntax using curly braces `{}`.
+
+#### **Components**:
+A **component** is a reusable, self-contained piece of the UI that is responsible for rendering a part of the page. Components can either be **class components** or **functional components**.
+
+---
+
+### **Q.3 Explain the difference between class components and functional components**
+
+#### **Class Components**:
+Class components are **ES6 classes** that extend `React.Component` and can hold **state** and lifecycle methods. They are used to create components that require more complex logic.
+
+- **State**: Managed inside the class.
+- **Lifecycle Methods**: Available for handling events at different stages of the component's existence (e.g., `componentDidMount`, `componentWillUnmount`).
+
+**Example**:
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  render() {
+    return <div>{this.state.count}</div>;
+  }
+}
+```
+
+#### **Functional Components**:
+Functional components are simpler **functions** that receive `props` as arguments and return JSX. Since the introduction of **React hooks**, functional components can now also manage **state** and use lifecycle-like functionality.
+
+- **State**: Managed using `useState` hook.
+- **Lifecycle Methods**: Managed using `useEffect` hook.
+
+**Example**:
+```js
+const MyComponent = () => {
+  const [count, setCount] = useState(0);
+  return <div>{count}</div>;
+};
+```
+
+---
+
+### **Q.4 What are the main phases in a component's lifecycle?**
+
+A React component's lifecycle is divided into three main phases:
+
+1. **Mounting**: The phase where the component is being created and inserted into the DOM.
+   - Methods: `constructor()`, `getDerivedStateFromProps()`, `render()`, `componentDidMount()`
+   
+2. **Updating**: The phase where the component is re-rendered due to changes in state or props.
+   - Methods: `getDerivedStateFromProps()`, `shouldComponentUpdate()`, `render()`, `getSnapshotBeforeUpdate()`, `componentDidUpdate()`
+   
+3. **Unmounting**: The phase where the component is removed from the DOM.
+   - Method: `componentWillUnmount()`
+
+With **functional components**, these lifecycle methods are replaced by **hooks** like `useEffect` to handle similar behaviors.
+
+---
+
+### **Q.5 What is the concept of state in React?**
+
+**State** is an object that represents the **dynamic data** or **internal state** of a component in React. It allows components to create interactive UIs by changing the component’s output when the state changes.
+
+- **State** is **mutable**, meaning it can change over time.
+- The **state** can be modified using the `setState()` method in class components or the `useState()` hook in functional components.
+- When the **state** changes, React re-renders the component to reflect the updated state.
+
+**Example (Functional Component)**:
+```js
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // State variable "count" with initial value 0
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+In this example:
+- `useState(0)` creates the state variable `count` with an initial value of 0.
+- `setCount` is used to update the state when the button is clicked.
+
+---
+
+`Section B`
+
+### **Q.1 What is React Router? How do you define routes and match URLs to components?**
+
+**React Router** is a **standard library** for routing in React. It enables navigation among different components/views in a React application, allowing users to move between pages without reloading the entire application. React Router uses a **declarative** approach to handle routing, where the routes are defined in the React component tree.
+
+#### **How to Define Routes**:
+You can define routes using the `Route` component and wrap it with a `BrowserRouter` or `HashRouter` component. You also use the `Link` component for navigation between different routes.
+
+- `BrowserRouter`: Uses HTML5 history API to manage URL.
+- `Route`: Defines a route that matches a URL pattern and renders a component.
+- `Link`: Provides navigation without page refresh.
+
+#### **Example**:
+
+```js
+import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+const Home = () => <h2>Home Page</h2>;
+const About = () => <h2>About Page</h2>;
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+In this example:
+- `Switch`: Ensures that only one route is rendered at a time.
+- `exact`: Ensures that the route only matches the exact URL.
+- `Link`: Provides navigation to different routes.
+
+---
+
+### **Q.2 What is the concept of lifting state up? What is the difference between local state and global state management solutions like Redux?**
+
+#### **Lifting State Up**:
+**Lifting state up** refers to the practice of **moving state** from a child component to a common parent component when multiple child components need access to the same state. The parent component holds the state and passes it down as props to child components. This allows child components to communicate and share data via their parent.
+
+#### **Example of Lifting State Up**:
+```js
+import React, { useState } from 'react';
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <ChildComponent count={count} setCount={setCount} />
+    </div>
+  );
+}
+
+function ChildComponent({ count, setCount }) {
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+In this example:
+- `count` and `setCount` are lifted to the `ParentComponent`, and passed down as props to the `ChildComponent`.
+
+#### **Local State vs. Global State Management**:
+- **Local State**: Refers to state that is **managed within a single component** (using `useState` or `setState` in class components). It is **private** to the component and cannot be shared between components directly.
+- **Global State**: Refers to state that is **managed globally** and can be shared across different components. Global state solutions like **Redux**, **Context API**, or **MobX** allow components to access and update state from any part of the application.
+
+**Difference**:
+- **Local State**: More suitable for small, isolated components.
+- **Global State**: Useful for managing state that is shared across many components or when components need to communicate with each other.
+
+**Example of Redux (Global State Management)**:
+```js
+// Action
+const increment = () => ({
+  type: 'INCREMENT'
+});
+
+// Reducer
+const counterReducer = (state = 0, action) => {
+  switch(action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    default:
+      return state;
+  }
+};
+
+// Store setup
+import { createStore } from 'redux';
+const store = createStore(counterReducer);
+
+// Dispatch action
+store.dispatch(increment());
+```
+In this example, the Redux store holds the global state (`counter`), and components can subscribe to the store to get updates and dispatch actions to change the state.
+
+---
+
+### **Q.3 Explain the use of the useState hook in functional components. Provide an example.**
+
+The `useState` hook is a built-in **React hook** that allows you to add **state** to **functional components**. Before hooks, state could only be used in class components. `useState` provides a way to create and manage state in functional components.
+
+#### **Syntax**:
+```js
+const [state, setState] = useState(initialValue);
+```
+
+- `state`: The current value of the state variable.
+- `setState`: A function that allows you to update the state.
+- `initialValue`: The initial value for the state variable.
+
+#### **Example**:
+
+```js
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);  // Initial state is set to 0
+
+  return (
+    <div>
+      <p>Current Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+In this example:
+- The `useState` hook initializes `count` with `0`.
+- When the "Increment" button is clicked, `setCount` updates the `count` state by incrementing it by 1.
+- The UI is re-rendered whenever `setCount` is called, reflecting the updated state.
+
+This is how the `useState` hook is used to handle local state within a functional component.
+
+---
+
+`Section C`
+
+### **Q.1 How does state management work in React? Explain the process of updating state and triggering re-renders.**
+
+In **React**, **state management** refers to the handling of the component's data (or state) and how it is passed between components. React provides a **local state** for each component, which can be updated using hooks like `useState` (for functional components) or `setState` (for class components). When the state is updated, React triggers a **re-render** of the component to reflect the new state.
+
+#### **How State Management Works:**
+1. **Initial State**: When a component is created, it has an initial state value defined (using `useState` or `this.state` in class components).
+2. **Updating State**: When a state is updated using `setState` (in class components) or the state updater function from `useState` (in functional components), React marks the component as "dirty" and schedules a re-render.
+3. **Re-rendering**: React updates the UI to reflect the new state value by re-rendering the component. The state update triggers a re-evaluation of the component's render method or function, which in turn updates the DOM.
+4. **State Propagation**: If the updated state is passed down as **props** to child components, those components will also re-render with the updated state.
+
+#### **Example of Updating State and Triggering Re-render**:
+```js
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // Initial state is 0
+
+  const increment = () => {
+    setCount(count + 1); // This will trigger a re-render with the updated state
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+In this example, clicking the **Increment** button calls `setCount`, which updates the state and triggers a re-render. The updated `count` value is reflected in the UI.
+
+#### **Re-render Behavior**:
+- React efficiently re-renders only the components that depend on the changed state. It uses **virtual DOM** to compare the previous and new states to determine the minimal set of changes required in the actual DOM.
+
+---
+
+### **Q.2 How can you use Context API to share data globally in React? Discuss its advantages and limitations.**
+
+The **Context API** in React is a way to manage and share data globally across components without explicitly passing props down the component tree. It provides a **global state** accessible by any component, no matter how deep it is in the component tree.
+
+#### **How to Use Context API:**
+1. **Create a Context**: Use `React.createContext()` to create a context object.
+2. **Provide Context**: Use the `Provider` component to wrap your application (or part of it) and pass down the data through the `value` prop.
+3. **Consume Context**: Use the `useContext` hook (in functional components) or `Context.Consumer` (in class components) to consume and access the data in the context.
+
+#### **Example**:
+
+```js
+import React, { createContext, useState, useContext } from 'react';
+
+// Create a Context
+const CountContext = createContext();
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <CountContext.Provider value={{ count, setCount }}>
+      <Counter />
+    </CountContext.Provider>
+  );
+}
+
+function Counter() {
+  const { count, setCount } = useContext(CountContext);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+In this example:
+- `CountContext` is created and provides the `count` state and the `setCount` function to all components that consume it.
+- `useContext` is used in `Counter` to access the `count` state and `setCount` function.
+
+#### **Advantages of Context API**:
+1. **Global State Management**: Allows state to be shared across many components without the need to pass props down manually.
+2. **Simplifies Component Communication**: Ideal for sharing data that needs to be accessed by many components, such as themes, authentication data, etc.
+3. **Built-in React Solution**: No need for third-party state management libraries like Redux for smaller-scale applications.
+
+#### **Limitations of Context API**:
+1. **Performance Issues**: Since any change to the context value causes a re-render of all consuming components, it can lead to performance issues for large or deeply nested component trees.
+2. **Limited to Propagating Data**: Context is ideal for propagating global data, but complex application logic (like side-effects or managing async data) still requires more advanced state management solutions like Redux or MobX.
+3. **Not a Full State Management Solution**: While Context is great for sharing data, it does not have the sophisticated features of a state management library, like middleware or actions.
+
+---
+
+### **Q.3 What is React Router and how does it work? Explain the core concepts of routes, links, and navigation.**
+
+**React Router** is a popular library for handling **routing** in React applications. It enables navigation between different components and views in a single-page application (SPA) without requiring a full page reload.
+
+#### **How React Router Works**:
+- It uses a **URL-based routing** system where different URL paths are mapped to React components.
+- When the user navigates to a different URL, React Router updates the view to match the URL by rendering the associated component.
+- React Router relies on the **history API** (for browsers) to manipulate the browser's history and ensure a smooth navigation experience without full page reloads.
+
+#### **Core Concepts**:
+
+1. **Routes**:
+   - `Route` is used to define a **path** and map it to a specific component. React Router compares the current URL with the `path` prop of each `Route`, and if they match, it renders the component.
+   
+   **Example**:
+   ```js
+   <Route path="/home" component={Home} />
+   ```
+
+2. **Links**:
+   - `Link` is used to create **links** that enable users to navigate to different routes. It prevents page reloads by using client-side routing.
+
+   **Example**:
+   ```js
+   <Link to="/home">Go to Home</Link>
+   ```
+
+3. **Navigation**:
+   - React Router provides multiple components for navigation like `Link`, `NavLink`, and `Redirect` (for redirection).
+   - `useHistory` (hook) can also be used to programmatically navigate between routes.
+   
+   **Example** of Navigation:
+   ```js
+   import { useHistory } from 'react-router-dom';
+   
+   function MyComponent() {
+     const history = useHistory();
+     const goToHome = () => {
+       history.push('/home'); // Navigate programmatically
+     };
+
+     return <button onClick={goToHome}>Go to Home</button>;
+   }
+   ```
+
+4. **Switch**:
+   - `Switch` renders the **first matching route** and ensures that only one route is displayed at a time.
+
+   **Example**:
+   ```js
+   <Switch>
+     <Route path="/about" component={About} />
+     <Route path="/contact" component={Contact} />
+   </Switch>
+   ```
+
+#### **Example of React Router Usage**:
+```js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
+const Home = () => <h2>Home Page</h2>;
+const About = () => <h2>About Page</h2>;
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+In this example:
+- The `BrowserRouter` (`Router`) wraps the entire app, enabling the routing system.
+- `Link` components are used to navigate between `Home` and `About` routes.
+- The `Switch` ensures that only the first matching `Route` is rendered.
+
+#### **Core Concepts Summary**:
+- **Route**: Defines a mapping between a URL and a component.
+- **Link**: Provides navigation to a different route without a full page reload.
+- **Switch**: Renders only the first matching route.
+- **History API**: Handles client-side navigation and keeps track of URL changes.
+
+React Router helps build **single-page applications** where navigation happens within the same page, improving user experience with faster, seamless transitions.
+
+$$
+\Large \text{2nd Insem Ends Here}
+$$

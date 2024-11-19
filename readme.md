@@ -1208,8 +1208,10 @@ obj.arrowFunction();    // Output: undefined
 
 
 ---
+
+
 $$
-\Large \text{Stuff for 2nd Insem}
+\text{Stuff for 2nd Insem}
 $$
 
 # 2nd InSem
@@ -1402,7 +1404,7 @@ The DOM is a programming interface for web documents. It represents the structur
 **JavaScript** is a high-level, interpreted programming language used to create interactive effects and dynamic content on websites. It is a core part of web development, alongside HTML and CSS, and runs on the client side (in the browser).
 
 ### **Q.2 What are the primitive data types in JavaScript?**
-JavaScript has **7 primitive data types**:
+JavaScript has **7 primitive data types**: `NSB U NSB`
 1. **Number**: Represents numeric values (integer or floating-point).  
    Example: `let num = 42;`
 2. **String**: Represents a sequence of characters.  
